@@ -1,0 +1,75 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background: #1e1e1e;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar h1 {
+    color: #00ffcc;
+    margin: 0;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+.nav-links li {
+    margin: 0 15px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.dashboard {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 255, 204, 0.3);
+}
+.start-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #00ffcc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.start-btn:hover {
+    background: #009e99;
+}
+.loading-text {
+    font-size: 20px;
+    color: #00ffcc;
+    margin-top: 20px;
+    animation: blink 1s infinite alternate;
+}
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.stat-box {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 255, 204, 0.2);
+}

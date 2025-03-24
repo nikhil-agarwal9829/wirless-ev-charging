@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Order Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; }
+        .container { background: #6d775c; padding: 20px; width: 350px; margin: auto; border-radius: 10px; color: white; }
+        .input-box { width: 90%; padding: 8px; margin: 5px 0; border-radius: 5px; border: none; }
+        .product-row { display: flex; align-items: center; justify-content: space-between; padding: 5px; }
+        .product-img { width: 30px; height: 30px; border-radius: 50%; }
+        .qty-input { width: 40px; padding: 5px; border-radius: 5px; border: none; text-align: center; }
+        .submit-btn { background: #b5833a; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Grocery Order Form</h2>
+        
+        <label>Customer Name</label><br>
+        <input type="text" id="name" class="input-box" required><br>
+
+        <label>Phone Number</label><br>
+        <input type="text" id="phone" class="input-box" required oninput="validatePhoneNumber(this)"><br>
+
+        <label>Email</label><br>
+        <input type="email" id="email" class="input-box" required><br>
+
+        <h3>Products</h3>
+
+        <div class="product-row">
+            <img src="https://4.imimg.com/data4/BH/GH/MY-23225626/fresh-apple-500x500.jpg" alt="Apple" class="product-img">
+            <span>Apple $10</span>
+            <input type="number" class="qty-input" id="appleQty" min="0" placeholder="kg">
+        </div>
+
+        <div class="product-row">
+            <img src="https://organicmandya.com/cdn/shop/files/BananaPachabale.jpg?v=1721369894&width=1500" alt="Banana" class="product-img">
+            <span>Banana $5</span>
+            <input type="number" class="qty-input" id="bananaQty" min="0" placeholder="kg">
+        </div>
+
+        <div class="product-row">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_GKgJTpEnJo-isZm-RxcdfAZ6vy9KSvWlg&s" alt="Avocado" class="product-img">
+            <span>Avocado $7</span>
+            <input type="number" class="qty-input" id="avocadoQty" min="0" placeholder="kg">
+        </div>
+
+        <button class="submit-btn" onclick="submitOrder()">SUBMIT</button>
+    </div>
+
+    <script>
+        function validatePhoneNumber(input) {
+            input.value = input.value.replace(/[^0-9]/g, ''); 
+        }
+
+        function submitOrder() {
+            let name = document.getElementById("name").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (!phone.match(/^\d+$/)) {  
+                alert("Please enter a valid phone number.");
+                return;
+            }
+
+            let products = [];
+            let appleQty = document.getElementById("appleQty").value;
+            let bananaQty = document.getElementById("bananaQty").value;
+            let avocadoQty = document.getElementById("avocadoQty").value;
+
+            if (appleQty > 0) products.push({ name: "Apple", price: 10, quantity: appleQty });
+            if (bananaQty > 0) products.push({ name: "Banana", price: 5, quantity: bananaQty });
+            if (avocadoQty > 0) products.push({ name: "Avocado", price: 7, quantity: avocadoQty });
+
+            if (!name || !phone || !email || products.length === 0) {
+                alert("Please fill all details and select at least one product.");
+                return;
+            }
+
+            let orderData = { name, phone, email, products };
+            localStorage.setItem("order", JSON.stringify(orderData));
+
+            window.location.href = "receipt.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shauryaa - Wireless EV Charging</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navbar {
+            background: #1f1f1f;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar h1 {
+            font-size: 24px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00ffcc;
+        }
+        
+        /* Hero Section (Slideshow Background) */
+        .hero {
+            font-family: 'Orbitron', sans-serif;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        /* Description Section */
+        .content {
+            padding: 50px;
+            font-size: 20px;
+            color: #333;
+            max-width: 800px;
+            margin: auto;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #00ffcc;
+            color: black;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #008866;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .left-section {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+        
+        .right-section {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .header {
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header h1::after {
+            content: "";
+            height: 1px;
+            background-color: #000;
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        
+        .main-title {
+            font-size: 42px;
+            color: #8B0000;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .paragraph {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .stats-container {
+            display: flex;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-right: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 64px;
+            color: #3498db;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .stat-text {
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+        }
+        
+        .feature-content {
+            flex: 1;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature-description {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .blue-background {
+            background-color: #cce5ff;
+            height: 100px;
+            margin-top: -30px;
+            position: relative;
+            z-index: -1;
+        }
+        /* Key Benefits Section */
+#key-benefits {
+    padding: 40px;
+    text-align: center;
+    background: #fff;
+}
+
+.highlights-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.highlights-header .line {
+    width: 40px;
+    height: 2px;
+    background: black;
+    margin-right: 10px;
+}
+
+.highlights-header h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Flexbox container for highlights */
+.highlights-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+}
+
+.highlight img {
+    width: 70px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.highlight p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.highlight :hover{
+    transform: scale(1.2);
+}
+#types_charger
+{
+    transition: transform 0.3s ease-in-out;
+}
+#types_charger :hover
+{
+    transform: scale(1.1);
+}       
+        .features-section-wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .benefits-cards-container {
+            flex: 1;
+        }
+        
+        .charging-image-container {
+            flex: 1;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefit-icon {
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .benefit-text-content {
+            flex: 1;
+        }
+        
+        .benefit-heading {
+            font-weight: bold;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-paragraph {
+            color: #333;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .ev-charging-image {
+            width: 500px;
+            height: 800px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Footer */
+        .footer {
+            background: #1f1f1f;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+        }
+        #somethin
+        {
+            width: 100%;
+            height: 500px;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>The Shauryaa</h1>
+        <ul class="nav-links">
+            <li><a href="HOME.HTML">Home</a></li>
+            <li><a href="nik.html">dashboard</a></li>
+            <li><a href="new2.html">EV Models</a></li>
+            <li><a href="dashboard.html">Wireless Charging</a></li>
+            <li><a href="second.html">about us</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" id="hero">
+        Welcome to The Future of Wireless EV Charging
+    </div>
+
+    <!-- Description Section -->
+    <div class="content">
+        <h2>Why Wireless EV Charging?</h2>
+        <p>Wireless EV charging is the next breakthrough in electric vehicle technology, allowing you to charge your car without cables! Experience seamless, efficient, and futuristic charging for your electric vehicle.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+    <div class="container">
+        <div class="left-section">
+            <div class="header">
+                <h1>TECHNOLOGY CURATOR</h1>
+            </div>
+            
+            <h2 class="main-title">Why go wireless?</h2>
+            
+            <p class="subtitle">Simply Park and Charge</p>
+            
+            <p class="paragraph">
+                Dash Dynamic, a visionary in deep-tech, is developing its innovative wireless charging technology to
+                revolutionize the electric vehicle (EV) industry. Dash Dynamic's wireless charging technology is a game-changer
+                for the EV industry, enabling users to conveniently and efficiently charge their vehicles without the need for any
+                physical connections.
+            </p>
+            
+            <p class="paragraph">
+                Dash Dynamic has developed a wireless charging technology for electric vehicles (EVs) which will charge the
+                vehicle 30% faster than conventional plugged EV chargers. Using our mobile app an electric vehicle user will be
+                able to wirelessly charge by simply parking above the charger on ground.
+            </p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <p>In Recent Survey</p>
+                    <h3 class="stat-number">98%</h3>
+                    <p class="stat-text">are intersted in Wireless charging</p>
+                </div>
+                
+                <div class="stat-box">
+                    <p>and</p>
+                    <h3 class="stat-number">73%</h3>
+                    <p class="stat-text">are more likely to buy an EV if wireless charging available.</p>
+                </div>
+            </div>
+            
+            <div class="blue-background"></div>
+        </div>
+        
+        <div class="right-section">
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100" fill="#990000">
+                        <circle cx="50" cy="50" r="40" stroke="#990000" stroke-width="5" fill="none"/>
+                        <path d="M50 20 L50 50 L70 70" stroke="#990000" stroke-width="5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">FASTER</h3>
+                    <p class="feature-description">
+                        Experience rapid charging with our autonomous charger that gives 30% speed boost and universal
+                        compatibility.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100" fill="#990000">
+                        <path d="M50 10 L90 50 L50 90 L10 50 Z" stroke="#990000" stroke-width="2" fill="none"/>
+                        <path d="M30 30 L70 70 M30 70 L70 30" stroke="#990000" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Versatile</h3>
+                    <p class="feature-description">
+                        No specific parking orientation is required. System works in any weather condition like snow, rainy, and
+                        dirt seamlessly
+                    </p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100" fill="#990000">
+                        <path d="M20 50 C20 70, 80 70, 80 50" stroke="#990000" stroke-width="5" fill="none"/>
+                        <circle cx="50" cy="40" r="20" stroke="#990000" stroke-width="5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="feature-content">
+                    <h3 class="feature-title">Safety - FOREIGN OBJECT DETECTION</h3>
+                    <p class="feature-description">
+                        Through the proximity sensors and thermal sensors incorporated in the device to detect objects, the
+                        charging could be halted until it is removed.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-content">
+                    <h3 class="feature-title">Future - Dynamic Charging</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="key-benefits">
+        <div class="highlights-header">
+            <span class="line"></span>
+            <h2>HIGHLIGHTS</h2>
+        </div>
+    
+        <div class="highlights-container">
+            <div class="highlight">
+                <img src="mobile.png" alt="Smart Control" height="40">
+                <p>Smart Control</p>
+            </div>
+            <div class="highlight">
+                <img src="car.png" alt="Extended Range">
+                <p>Extended Range</p>
+            </div>
+            <div class="highlight">
+                <img src="robo.png" alt="Intelligent System">
+                <p>Intelligent System</p>
+            </div>
+            <div class="highlight">
+                <img src="agnostic.png" alt="Universal Charging">
+                <p>Universal Charging</p>
+            </div>
+            <div class="highlight">
+                <img src="money.png" alt="Cost Efficient">
+                <p>Cost Efficient</p>
+            </div>
+        </div>
+    </section>
+    <section id="types_charger">
+        <h1 align="left">----->Our Products</h1>
+        <img src="types.png" height="500" width="90%"><br><br><br>
+        <p ><h1 style="color:#8B0000">Take advantage of wireless charging to really differentiate your EVs unique.</h1>
+            Dash Dynamic creates wireless electric vehicle charging solutions that enable EV user to
+            experience Charge Happy moments, fostering brand loyalty across your automotive platforms.
+            Say goodbye to charging concerns for both you and your customers.</p>
+    </section><br><br>
+    <div class="features-section-wrapper">
+        <div class="benefits-cards-container">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 100 100" fill="#990000">
+                        <path d="M50,10 C30,10 15,25 15,45 C15,65 30,80 50,80 C70,80 85,65 85,45 C85,25 70,10 50,10 Z" fill="none" stroke="#990000" stroke-width="5"/>
+                        <path d="M30,30 L70,70 M30,70 L70,30" stroke="#990000" stroke-width="5"/>
+                    </svg>
+                </div>
+                <div class="benefit-text-content">
+                    <h3 class="benefit-heading">Expertise in engineering that cannot be matched.</h3>
+                    <p class="benefit-paragraph">
+                        We possess extensive expertise in wireless EV charging, having been pioneers in wireless power transfer and accumulating years of practical knowledge in constructing, testing, and optimizing wireless EV charging systems through our engineering offices worldwide.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 100 100" fill="#990000">
+                        <path d="M20,80 L20,40 L50,20 L80,40 L80,80 Z" fill="none" stroke="#990000" stroke-width="5"/>
+                        <path d="M20,40 L50,20 L80,40" fill="none" stroke="#990000" stroke-width="5"/>
+                        <circle cx="65" cy="55" r="5" fill="#990000"/>
+                        <path d="M65,55 L65,70" stroke="#990000" stroke-width="3"/>
+                    </svg>
+                </div>
+                <div class="benefit-text-content">
+                    <h3 class="benefit-heading">Dedication to excellence</h3>
+                    <p class="benefit-paragraph">
+                        Our design and manufacturing abilities meet automotive industry standards. We are currently producing on a large scale and subject our charging solutions to rigorous testing, which demonstrates their performance in real-world conditions.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 100 100" fill="#990000">
+                        <path d="M20,60 C20,40 40,30 50,30 C60,30 80,40 80,60" fill="none" stroke="#990000" stroke-width="5"/>
+                        <circle cx="30" cy="70" r="10" fill="none" stroke="#990000" stroke-width="5"/>
+                        <circle cx="70" cy="70" r="10" fill="none" stroke="#990000" stroke-width="5"/>
+                    </svg>
+                </div>
+                <div class="benefit-text-content">
+                    <h3 class="benefit-heading">Expanding and diversifying the implementation of automotive technology.</h3>
+                    <p class="benefit-paragraph">
+                        Presently in the process of creating our fifth iteration of wireless charging solutions, we possess prior generations that have undergone testing and implementation by leading global OEMs.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="charging-image-container">
+            <img src="ohk.png" alt="Wireless EV charging system with green glow under vehicle" class="ev-charging-image">
+        </div>
+    </div>
+    <div id="somethin">
+        <img src="img.png"></img>
+    <img src="https://www.dashdynamic.in/assets/Home/home_advantages_2.png" height="500" width="90%"></div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 The Shauryaa | All Rights Reserved</p>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Array of image filenames stored in the same folder as HTML
+        const images = ["im2.webp", "IMG.webp"];
+        let index = 0;
+        const heroSection = document.getElementById("hero");
+
+        function changeBackground() {
+            heroSection.style.backgroundImage = `url("${images[index]}")`;
+            index = (index + 1) % images.length;
+        }
+
+        // Change background every 4 seconds
+        setInterval(changeBackground, 4000);
+        changeBackground(); // Set initial background
+    </script>
+
+</body>
+</html>

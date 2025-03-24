@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology | Dash Dynamic</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #f03634;
+            --secondary: #282828;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text-color: #777777;
+            --white: #ffffff;
+            --border-color: #f3f3f3;
+            --gradient-bg: linear-gradient(135deg, #f03634 0%, #ff7f50 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 56px;
+        }
+        
+        h2 {
+            font-size: 36px;
+        }
+        
+        h3 {
+            font-size: 24px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        
+        .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 15px;
+        }
+        
+        .col-md-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            padding: 0 15px;
+        }
+        
+        .col-md-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+            padding: 0 15px;
+        }
+        
+        .col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            letter-spacing: 1px;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(80, 9, 213, 0.228);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-bg);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(240, 54, 52, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(240, 54, 52, 0.4);
+        }
+        
+        .btn-dark {
+            background-color: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(40, 40, 40, 0.3);
+        }
+        
+        .btn-dark:hover {
+            background-color: var(--dark);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(40, 40, 40, 0.4);
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-bg);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: var(--white);
+            box-shadow: 0 5px 20px rgba(201, 192, 192, 0.1);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .header.sticky {
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 75px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            color: var(--secondary);
+            font-weight: 500;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding: 5px 0;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+        
+        /* Banner Styles */
+        .page-banner {
+            background: linear-gradient(rgba(2, 4, 113, 0.7), rgba(40, 40, 40, 0.7)), url('/api/placeholder/1920/700');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: var(--white);
+            margin-top: 0;
+            position: relative;
+        }
+        
+        .page-banner:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            z-index: 1;
+        }
+        
+        .page-banner h1 {
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            font-size: 60px;
+            letter-spacing: 2px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .breadcrumb-item {
+            font-size: 16px;
+            color: var(--white);
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '/';
+            margin: 0 10px;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--white);
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--primary);
+        }
+        
+        /* Technology Intro */
+        .technology-intro {
+            text-align: center;
+            background-color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-text {
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        /* Service Boxes */
+        .service-box {
+            padding: 40px 30px;
+            background-color: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+            text-align: center;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            height: 100%;
+        }
+        
+        .service-box:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-bg);
+            transition: all 0.4s ease;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-box:hover:before {
+            height: 6px;
+        }
+        
+        .service-icon {
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .service-icon:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(240, 54, 52, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        .service-icon i {
+            font-size: 48px;
+            color: var(--primary);
+        }
+        
+        .service-icon img {
+            height: 300px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+        }
+        
+        .service-box:hover .service-icon img {
+            transform: scale(1.05);
+        }
+        
+        .service-box h3 {
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-box:hover h3 {
+            color: var(--primary);
+        }
+        
+        .service-box p {
+            min-height: 100px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* Technology Features */
+        .tech-features {
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-features:before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(240, 54, 52, 0.1);
+            z-index: 1;
+        }
+        
+        .tech-features:after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(240, 54, 52, 0.1);
+            z-index: 1;
+        }
+        
+        .feature-box {
+            display: flex;
+            margin-bottom: 30px;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            height: calc(100% - 30px);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            flex: 0 0 60px;
+            margin-right: 20px;
+        }
+        
+        .feature-icon i {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-bg);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(240, 54, 52, 0.3);
+        }
+        
+        .feature-content h4 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-box:hover .feature-content h4 {
+            color: var(--primary);
+        }
+        
+        /* Solutions Section */
+        .solutions-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solutions-section:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background-color: rgba(240, 54, 52, 0.05);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        .solution-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: calc(100% - 30px);
+        }
+        
+        .solution-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        
+        .solution-image img {
+            transition: all 0.6s ease;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .solution-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(40, 40, 40, 0.1), rgba(40, 40, 40, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .solution-overlay h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .solution-overlay .btn {
+            transform: translateY(20px);
+            transition: all 0.4s ease 0.1s;
+            opacity: 0;
+        }
+        
+        .solution-item:hover .solution-image img {
+            transform: scale(1.1);
+        }
+        
+        .solution-item:hover .solution-overlay {
+            opacity: 1;
+        }
+        
+        .solution-item:hover .solution-overlay h3,
+        .solution-item:hover .solution-overlay .btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(40, 40, 40, 0.8), rgba(40, 40, 40, 0.8)), url('/api/placeholder/1920/600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(240, 54, 52, 0.2), transparent);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h3 {
+            color: var(--white);
+            font-size: 40px;
+            margin-bottom: 30px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--secondary);
+            color: #aaaaaa;
+            padding: 80px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(rgba(240, 54, 52, 0.1), transparent);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+        
+        .footer-widget {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-widget h4 {
+            color: var(--white);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-widget h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient-bg);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaaaaa;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 18px;
+            min-width: 20px;
+            display: inline-block;
+        }
+        
+        .footer-bottom {
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .copyright {
+            text-align: center;
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .service-icon img {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Equal height service boxes */
+        .service-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        
+        .service-column {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 15px;
+            margin-bottom: 30px;
+            display: flex;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .col-md-6, .col-md-4, .col-md-3 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .service-column {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            
+            h1 {
+                font-size: 42px;
+            }
+            
+            h2 {
+                font-size: 32px;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
+            }
+            
+            .nav {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .service-column {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .page-banner {
+                padding: 150px 0 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="Screenshot 2025-03-08 035453.png" alt="The Shauryaaa">
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="HOME.HTML" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="nik.html" class="nav-link">DASHBOARD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="seVICEhtml" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="dash.html" class="nav-link active">WIRELESS CHARGING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="second.html" class="nav-link">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Technology</h1>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Technology</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Technology Intro -->
+    <section class="section-padding technology-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="about-text">
+                        <h2>Our Technology Expertise</h2>
+                        <p>At The Shauryaa, we leverage cutting-edge technologies to deliver innovative solutions that drive business growth and digital transformation. Our expertise spans across various domains, allowing us to develop customized solutions that meet the unique needs of our clients.</p>
+                        <p>We stay at the forefront of technological advancements, continuously upgrading our skills and knowledge to provide state-of-the-art solutions that help businesses stay ahead in today's competitive landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Areas -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Technology Areas</h2>
+                <p>Explore our key technology domains that power our innovative solutions.</p>
+            </div>
+            <div class="service-row">
+                <!-- Technology 1 -->
+                <div class="service-column">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="Screenshot 2025-03-07 230732.png" alt="Step 1: Park and Power">
+                        </div>
+                        <h3>Step 1: Park and Power</h3>
+                        <p>Effortlessly park your EV directly over our discreet wireless charging pad, seamlessly integrated beneath the parking spot. No need for manual connection—simply position your vehicle, and charging begins automatically.</p>
+                    </div>
+                </div>
+                
+                <!-- Technology 2 -->
+                <div class="service-column">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="Screenshot 2025-03-08 015951.png" alt="Step 2: Magnetic Magic">
+                        </div>
+                        <h3>Step 2: Magnetic Magic</h3>
+                        <p>Our revolutionary double D coil configuration, integrated into the Ground Assembly (GA), creates a robust magnetic field. This innovative design guarantees smooth and efficient power flow, optimizing the charging process for your EV's battery.</p>
+                    </div>
+                </div>
+                
+                <!-- Technology 3 -->
+                <div class="service-column">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="Screenshot 2025-03-08 020040.png" alt="Step 3: Resonant Connection">
+                        </div>
+                        <h3>Step 3: Resonant Connection</h3>
+                        <p>Inside the Vehicle Assembly (VA), the receiver coil syncs with the magnetic field, creating a strong bond called magnetic resonant coupling. This bond allows power to flow smoothly without any physical contact, charging your EV effortlessly and reliably.</p>
+                    </div>
+                </div>
+                
+                <!-- Technology 4 -->
+                <div class="service-column">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <img src="Screenshot 2025-03-08 020506.png" alt="Step 4: Charging Made Easy">
+                        </div>
+                        <h3>Step 4: Charging Made Easy</h3>
+                        <p>When the magnetic field resonates, it generates electricity in the receiver coil. Our wireless system is designed to adapt, accommodating up to 25% misalignment. This means you can enjoy convenient charging, even when parking isn't perfectly aligned.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Features -->
+    <section class="section-padding tech-features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Technology</h2>
+                <p>Discover the advantages of partnering with Dash Dynamic for your technology needs.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Feature 1 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Innovative Solutions</h4>
+                            <p>We develop cutting-edge technology solutions that address complex business challenges and create new opportunities for growth and innovation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Feature 2 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Scalable Architecture</h4>
+                            <p>Our technology solutions are built on scalable architectures that can grow with your business needs and adapt to changing market demands.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Feature 3 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Enterprise-Grade Security</h4>
+                            <p>We implement robust security measures to protect your data and systems from unauthorized access, breaches, and other cyber threats.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Feature 4 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Seamless Integration</h4>
+                            <p>Our solutions integrate seamlessly with your existing systems, ensuring smooth operations and maximizing the value of your technology investments.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Feature 5 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Expert Team</h4>
+                            <p>Our team of experienced technology experts has the knowledge and skills to design, develop, and implement solutions that meet your specific needs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Feature 6 -->
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i>✓</i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Continuous Support</h4>
+                            <p>We provide ongoing support and maintenance to ensure your technology solutions continue to perform optimally and deliver value over time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Solutions -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Technology Solutions</h2>
+                <p>Explore how our technology expertise translates into effective business solutions.</p>
+            </div>
+            <div class="row">
+                <!-- Solution 1 -->
+                <div class="col-md-4">
+                    <div class="solution-item">
+                        <div class="solution-image">
+                            <img src="https://thedriven.io/wp-content/uploads/2023/02/To-EV-or-not-to-EV_3_Running-Costs.jpg" alt="Lower Running Costs">
+                            <div class="solution-overlay">
+                                <h3>Lower Running Costs</h3>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution 2 -->
+                <div class="col-md-4">
+                    <div class="solution-item">
+                        <div class="solution-image">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D22AQFZ9CxA-D7rnw/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1699013765059?e=2147483647&v=beta&t=R1j3C6WqZgpKafyVSkZzNW-HoGUUx8BEpqby5gjVyCs" alt="Environmental Benefits">
+                            <div class="solution-overlay">
+                                <h3>Environmental Benefits</h3>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution 3 -->
+                <div class="col-md-4">
+                    <div class="solution-item">
+                        <div class="solution-image">
+                            <img src="https://images.sw.cdn.siemens.com/siemens-disw-assets/public/6KeFr9MPUSZCK16aHXHmVt/en-US/TAC_900.016_GBL_EBK_The%20Value%20of%20Vehicle%20Engineering-1920x1080px.png?auto=format%2Ccompress&w=900&fit=max&q=60" alt="Performance and Comfort">
+                            <div class="solution-overlay">
+                                <h3>Performance and Comfort</h3>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution 4 -->
+                <div class="col-md-4">
+                    <div class="solution-item">
+                        <div class="solution-image">
+                            <img src="https://images.firstpost.com/wp-content/uploads/2021/09/state-ev-policies-subsidies-for-electric-vehicles-in-every-state-in-india-full-list.jpg" alt="Government Incentives">
+                            <div class="solution-overlay">
+                                <h3>Government Incentives</h3>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution 5 -->
+                <div class="col-md-4">
+                    <div class="solution-item">
+                        <div class="solution-image">
+                            <img src="https://www.servotech.in/blog/wp-content/uploads/2023/11/Public-EV-Charging-Station-VS-Home-EV-Charging-Station.jpg" alt="Convenience">
+                            <div class="solution-overlay">
+                                <h3>Convenience</h3>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution 6 -->
+                <div class="col-md-4">
+                    <div class="solution-item">
+                        <div class="solution-image">
+                            <img src="https://blog.evsolutions.com/hubfs/Blog%20Post%20Images-2020/How%20Electric%20Vehicle%20Battery%20Technology%20Works.jpg" alt="Technological Advancements">
+                            <div class="solution-overlay">
+                                <h3>Technological Advancements</h3>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h3>Ready to Transform Your Business with Technology?</h3>
+                <p>Contact us today to discuss how our technology solutions can help you achieve your business goals.</p>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-md-3">
+                    <div class="footer-widget">
+                        <h4>About The Shauryaa</h4>
+                        <p>The Shauryaa is a leading technology solutions provider specializing in innovative digital solutions that drive business growth and transformation.</p>
+                        <p>We combine technical expertise with industry knowledge to deliver solutions that meet the unique needs of our clients.</p>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-md-3">
+                    <div class="footer-widget">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Our Services</a></li>
+                            <li><a href="technology.html">Technology</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Services -->
+                <div class="col-md-3">
+                    <div class="footer-widget">
+                        <h4>Our Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Mobile Applications</a></li>
+                            <li><a href="#">Cloud Solutions</a></li>
+                            <li><a href="#">Digital Transformation</a></li>
+                            <li><a href="#">IT Consulting</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-md-3">
+                    <div class="footer-widget">
+                        <h4>Contact Us</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <i>📍</i>
+                                <span>123 Tech Avenue, Silicon Valley, CA 94305</span>
+                            </li>
+                            <li>
+                                <i>📞</i>
+                                <span>+1 (555) 123-4567</span>
+                            </li>
+                            <li>
+                                <i>✉️</i>
+                                <span>info@theshauryaa.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright">
+                    <p>&copy; 2025 The Shauryaa. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

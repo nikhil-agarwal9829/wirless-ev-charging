@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Dashboard - The Shauryaa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        .navbar {
+            background: #1f1f1f;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar h1 {
+            font-size: 24px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00ffcc;
+        }
+        .dashboard {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .card {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.5);
+        }
+        .card h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>The Shauryaa</h1>
+        <ul class="nav-links">
+            <li><a href="new.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">EV Models</a></li>
+            <li><a href="#">Wireless Charging</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <h1 style="margin-top: 20px;">EV Charging Dashboard</h1>
+    <div class="dashboard">
+        <div class="card" id="battery">
+            <h2>Battery Life</h2>
+            <p>80%</p>
+        </div>
+        <div class="card" id="charging">
+            <h2>Charging Status</h2>
+            <p>Charging</p>
+        </div>
+        <div class="card" id="coil-alignment">
+            <h2>Coil Alignment</h2>
+            <p>Perfect</p>
+        </div>
+        <div class="card" id="temperature">
+            <h2>Battery Temperature</h2>
+            <p>35°C</p>
+        </div>
+        <div class="card" id="heat-level">
+            <h2>Heat Levels</h2>
+            <p>Normal</p>
+        </div>
+        <div class="card" id="time-to-charge">
+            <h2>Time to Full Charge</h2>
+            <p>30 min</p>
+        </div>
+        <div class="card" id="voltage">
+            <h2>Voltage</h2>
+            <p>400V</p>
+        </div>
+        <div class="card" id="current">
+            <h2>Current</h2>
+            <p>50A</p>
+        </div>
+        <div class="card" id="energy-consumption">
+            <h2>Energy Consumption</h2>
+            <p>15 kWh</p>
+        </div>
+        <div class="card" id="efficiency">
+            <h2>Charging Efficiency</h2>
+            <p>92%</p>
+        </div>
+    </div>
+    <script>
+        function updateDashboard() {
+            document.getElementById("battery").querySelector("p").innerText = Math.floor(Math.random() * 21) + 80 + "%";
+            document.getElementById("temperature").querySelector("p").innerText = Math.floor(Math.random() * 10) + 30 + "°C";
+            document.getElementById("heat-level").querySelector("p").innerText = ["Normal", "High", "Critical"][Math.floor(Math.random() * 3)];
+            document.getElementById("time-to-charge").querySelector("p").innerText = Math.floor(Math.random() * 30) + " min";
+            document.getElementById("voltage").querySelector("p").innerText = Math.floor(Math.random() * 51) + 350 + "V";
+            document.getElementById("current").querySelector("p").innerText = Math.floor(Math.random() * 21) + 40 + "A";
+            document.getElementById("energy-consumption").querySelector("p").innerText = (Math.random() * (20 - 10) + 10).toFixed(1) + " kWh";
+            document.getElementById("efficiency").querySelector("p").innerText = Math.floor(Math.random() * 6) + 90 + "%";
+        }
+        setInterval(updateDashboard, 5000);
+    </script>
+</body>
+</html>

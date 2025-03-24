@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shauryaa - Wireless EV Charging</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>The Shauryaa</h1>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">EV Models</a></li>
+            <li><a href="#">Wireless Charging</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" id="hero">
+        Welcome to The Future of Wireless EV Charging
+    </div>
+
+    <!-- Description Section -->
+    <div class="content">
+        <h2>Why Wireless EV Charging?</h2>
+        <p>Wireless EV charging is the next breakthrough in electric vehicle technology, allowing you to charge your car
+            without cables! Experience seamless, efficient, and futuristic charging for your electric vehicle.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 The Shauryaa | All Rights Reserved</p>
+    </div>
+
+    <h2 id="voltage">Voltage: -- V</h2>
+    <h2 id="current">Current: -- A</h2>
+    <h2 id="power">Power: -- W</h2>
+
+    <script src="script.js"></script>
+
+
+    <script>
+        // Array of image filenames stored in the same folder as HTML
+        const images = ["im2.webp", "IMG.webp"];
+        let index = 0;
+        const heroSection = document.getElementById("hero");
+
+        function changeBackground() {
+            heroSection.style.backgroundImage = url("${images[index]}");
+            index = (index + 1) % images.length;
+        }
+
+        // Change background every 4 seconds
+        setInterval(changeBackground, 4000);
+        changeBackground(); // Set initial background
+
+
+
+
+    </script>
+
+</body>
+
+</html>

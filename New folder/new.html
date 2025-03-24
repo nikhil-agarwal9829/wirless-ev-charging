@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shauryaa - Wireless EV Charging</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #eef1f3;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #1f1f1f 60%, #333);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar h1 {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            color: #00ffcc;
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            font-family: 'Orbitron', sans-serif;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out;
+            transition: background-image 1s ease-in-out;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px;
+            font-size: 20px;
+            color: #444;
+            max-width: 900px;
+            margin: auto;
+            animation: slideIn 1.5s ease-in-out;
+            text-align: left;
+        }
+
+        .content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        /* Wireless Charging Info Section */
+        .wireless-charging {
+            background: white;
+            padding: 50px;
+            margin-top: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            margin: auto;
+            text-align: left;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .wireless-charging h2 {
+            color: #007766;
+            font-size: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #00aa88;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+
+        .wireless-charging p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .wireless-charging ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .wireless-charging ul li {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Adding Icons to List Items */
+        .wireless-charging ul li::before {
+            content: "✔";
+            color: #00aa88;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #00aa88;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: #008866;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f1f1f;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 16px;
+            text-align: center;
+            border-top: 4px solid #00aa88;
+        }
+
+        /* New EV Information Section */
+        .ev-info {
+            background: linear-gradient(135deg, #f9f9f9, #e8f4f2);
+            padding: 60px 50px;
+            margin-top: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 40px auto;
+            text-align: center;
+            animation: fadeInUp 1.8s ease-in-out;
+        }
+
+        .ev-info h2 {
+            color: #007766;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .ev-info-text {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .ev-info p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Side by Side Images */
+        .image-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .image-card {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: #007766;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .card-content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .ev-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 15px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00aa88;
+            margin-bottom: 5px;
+            font-family: 'Audiowide', cursive;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>The Shauryaa</h1>
+        <ul class="nav-links">
+            <li><a href="new.html">Home</a></li>
+            <li><a href="nik.html">Dashboard</a></li>
+            <li><a href="new2.html">EV Models</a></li>
+            <li><a href="dashboard.html">Wireless Charging</a></li>
+            <li><a href="Contacts\second.html">Business model</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" id="hero">
+        Welcome to The Future of Wireless EV Charging
+    </div>
+
+    <!-- Description Section -->
+    <div class="content" id="wireless-charging">
+        <h2>Why Wireless EV Charging?</h2>
+        <p>Wireless EV charging is the next breakthrough in electric vehicle technology, allowing you to charge your car
+            without cables! Experience seamless, efficient, and futuristic charging for your electric vehicle.</p>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGlFtmIvVAq7qWwPkmcGTASmVoOOJaok52xA&s"
+            alt="Wireless EV Charging">
+
+        <h3>How Does Wireless Charging Work?</h3>
+        <p>Wireless EV charging operates using inductive charging technology...</p>
+
+        <h3>Benefits of Wireless EV Charging</h3>
+        <ul>
+            <li>Convenience: No need to plug and unplug cables.</li>
+            <li>Safety: Reduces wear and tear, minimizing trip hazards.</li>
+            <li>Weatherproof: Functions effectively in all weather conditions.</li>
+            <li>Efficiency: Advanced resonant inductive coupling improves energy transfer.</li>
+            <li>Integration: Can be embedded in roads for dynamic charging.</li>
+        </ul>
+
+        <a href="#" class="btn">Learn More</a>
+    </div>
+
+    <!-- New EV Information Section -->
+    <div class="ev-info" id="ev-models">
+        <h2>The Electric Revolution</h2>
+
+        <div class="ev-info-text">
+            <p>Electric vehicles are transforming the automotive industry with zero-emission technology, cutting-edge
+                features, and unparalleled performance. The Shauryaa leads this revolution with our innovative lineup of
+                electric vehicles designed for the modern driver.</p>
+
+            <p>Our EVs combine sustainable engineering with luxury design, offering an eco-friendly alternative without
+                compromising on power or comfort. With rapid charging capabilities, extended range, and state-of-the-art
+                connectivity, The Shauryaa vehicles represent the pinnacle of electric mobility.</p>
+        </div>
+
+        <!-- EV Stats -->
+        <div class="ev-stats">
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">KM Range</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">80</div>
+                <div class="stat-label">Min Full Charge</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Emissions</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">3.9s</div>
+                <div class="stat-label">0-100 km/h</div>
+            </div>
+        </div>
+
+        <!-- Side by Side Images with Text -->
+        <div class="image-grid">
+            <div class="image-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn17AJtqalqqe4L0TD6tJvMSUw95EQdKh0UA&s"
+                    alt="EV Sedan">
+                <div class="card-content">
+                    <h3>The Shauryaa Elite</h3>
+                    <p>Our flagship sedan combines elegant design with powerful performance. Experience luxury with zero
+                        emissions.</p>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZm5DcK3OEIUJdCYYQgYaJ2SZ2TovEr_oG6Q&s"
+                    alt="EV SUV">
+                <div class="card-content">
+                    <h3>The Shauryaa Venture X</h3>
+                    <p>Our electric SUV offers versatility and power for every adventure, with class-leading range and
+                        comfort.</p>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8Fak_mEBqgLKLVBumZU9YK4puzn3qlx4n6w&s"
+                    alt="EV Sports Car">
+                <div class="card-content">
+                    <h3>The Shauryaa Velocity</h3>
+                    <p>Our performance model delivers exhilarating acceleration and handling, proving electric can be
+                        exciting.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="btn">Explore Our Models</a>
+    </div>
+
+    <!-- New Features Section -->
+    <div class="ev-features">
+        <h2>Advanced EV Features</h2>
+
+        <div class="features-container">
+            <div class="feature">
+                <div class="feature-icon">
+                    <span class="icon">🔋</span>
+                </div>
+                <h3>Ultra-Fast Charging</h3>
+                <p>Our proprietary battery technology allows for 80% charge in just 20 minutes at compatible charging
+                    stations.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <span class="icon">🛰️</span>
+                </div>
+                <h3>Smart Navigation</h3>
+                <p>AI-powered route planning optimizes your journey while identifying charging stations along the way.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <span class="icon">🔐</span>
+                </div>
+                <h3>Enhanced Security</h3>
+                <p>Advanced biometric systems and remote monitoring keep your vehicle secure at all times.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <span class="icon">🌐</span>
+                </div>
+                <h3>Connected Experience</h3>
+                <p>Seamless integration with your digital ecosystem enables full control via smartphone or voice
+                    commands.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+
+
+    <!-- Environmental Impact Section -->
+    <div class="environmental-impact">
+        <h2>Our Commitment to the Planet</h2>
+
+        <div class="impact-content">
+            <div class="impact-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2jTtGxkxu4WzJFDhMBIJNwv__FfBQ5lP6TQ&s"
+                    alt="Environmental Impact">
+            </div>
+
+            <div class="impact-text">
+                <p>At The Shauryaa, we believe in creating a sustainable future. Our manufacturing processes use 100%
+                    renewable energy, and we're committed to achieving carbon neutrality across our entire supply chain
+                    by 2026.</p>
+
+                <div class="impact-stats">
+                    <div class="impact-stat">
+                        <div class="stat-number">3.2M</div>
+                        <div class="stat-label">Tons of CO₂ saved annually</div>
+                    </div>
+
+                    <div class="impact-stat">
+                        <div class="stat-number">87%</div>
+                        <div class="stat-label">Recyclable components</div>
+                    </div>
+
+                    <div class="impact-stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Renewable energy in production</div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn">Learn About Our Sustainability</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>The Shauryaa</h2>
+                <p>Powering the future of mobility</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="link-group">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-group">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">EV Models</a></li>
+                        <li><a href="#">Charging Solutions</a></li>
+                        <li><a href="#">Energy Storage</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-group">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Service Centers</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">User Manuals</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                <div class="subscription-form">
+                    <input type="email" placeholder="Your email address">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 The Shauryaa | All Rights Reserved</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon">FB</a>
+                <a href="#" class="social-icon">TW</a>
+                <a href="#" class="social-icon">IG</a>
+                <a href="#" class="social-icon">LI</a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Additional Styles for New Sections */
+
+        /* Features Section */
+        .ev-features {
+            background: #f3f8f7;
+            padding: 60px 50px;
+            margin-top: 40px;
+            border-radius: 15px;
+            max-width: 1000px;
+            margin: 40px auto;
+            text-align: center;
+            animation: fadeInUp 1.8s ease-in-out;
+        }
+
+        .ev-features h2 {
+            color: #007766;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .features-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #00aa88;
+        }
+
+        .feature h3 {
+            color: #007766;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 50px;
+            margin: 40px auto;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            color: #007766;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .testimonial {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 60px;
+            color: rgba(0, 170, 136, 0.2);
+            font-family: serif;
+        }
+
+        .quote {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .customer-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .customer-name {
+            font-weight: bold;
+            color: #007766;
+            font-size: 18px;
+        }
+
+        .customer-car {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Environmental Impact Section */
+        .environmental-impact {
+            background: linear-gradient(135deg, #f6f9f8, #e0f0ec);
+            padding: 60px 50px;
+            margin: 40px auto;
+            max-width: 1000px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .environmental-impact h2 {
+            color: #007766;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+        }
+
+        .impact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .impact-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .impact-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .impact-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .impact-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .impact-stats {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .impact-stat {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            background: linear-gradient(to right, #1a1a1a, #333);
+            color: white;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+            text-align: left;
+            border-top: 4px solid #00aa88;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-logo h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .link-group h3 {
+            color: #00ffcc;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .link-group ul {
+            list-style: none;
+        }
+
+        .link-group ul li {
+            margin-bottom: 8px;
+        }
+
+        .link-group ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .link-group ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .newsletter {
+            flex-basis: 300px;
+        }
+
+        .newsletter h3 {
+            color: #00ffcc;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .newsletter p {
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        .subscription-form {
+            display: flex;
+        }
+
+        .subscription-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+
+        .subscribe-btn {
+            background: #00aa88;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            background: #008866;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .social-icon:hover {
+            background: #00aa88;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .navbar h1 {
+                margin-bottom: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 5px 10px;
+            }
+
+            .hero {
+                font-size: 28px;
+                padding: 0 20px;
+            }
+
+            .content,
+            .wireless-charging,
+            .ev-info,
+            .ev-features,
+            .testimonials,
+            .environmental-impact {
+                padding: 30px 20px;
+            }
+
+            .feature,
+            .testimonial,
+            .impact-stat,
+            .stat-box {
+                min-width: 100%;
+            }
+
+            .image-card {
+                min-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .footer-content,
+            .footer-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .copyright {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animation for Charging Indicator */
+        .charging-indicator {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 30px;
+            margin-top: 20px;
+        }
+
+        .charging-indicator span {
+            position: absolute;
+            width: 12px;
+            height: 30px;
+            background-color: #00aa88;
+            animation: charge 1.2s infinite ease-in-out;
+            border-radius: 3px;
+        }
+
+        .charging-indicator span:nth-child(1) {
+            left: 0;
+            animation-delay: 0s;
+        }
+
+        .charging-indicator span:nth-child(2) {
+            left: 20px;
+            animation-delay: 0.2s;
+        }
+
+        .charging-indicator span:nth-child(3) {
+            left: 40px;
+            animation-delay: 0.4s;
+        }
+
+        .charging-indicator span:nth-child(4) {
+            left: 60px;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes charge {
+
+            0%,
+            100% {
+                height: 10px;
+                background-color: rgba(0, 170, 136, 0.3);
+            }
+
+            50% {
+                height: 30px;
+                background-color: #00aa88;
+            }
+        }
+    </style>
+
+    <body>
+        <!-- Technology Section -->
+        <div class="ev-technology">
+            <h2>Revolutionary Technology</h2>
+
+            <div class="tech-showcase">
+                <div class="tech-item">
+                    <div class="tech-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxqNnMaTIHW90SLVaH3Cj4U8_TdaFMRRXxMQ&s"
+                            alt="Battery Technology">
+                    </div>
+                    <div class="tech-info">
+                        <h3>Next-Gen Battery Technology</h3>
+                        <p>Our proprietary solid-state battery technology offers unprecedented energy density, faster
+                            charging, and longer lifespan than conventional lithium-ion batteries. With advanced thermal
+                            management and optimized chemistry, our batteries maintain peak performance in all
+                            conditions.</p>
+                        <ul class="tech-specs">
+                            <li>Energy Density: 400+ Wh/kg</li>
+                            <li>Charge Cycles: 2000+</li>
+                            <li>Fast Charging: 10-80% in 15 minutes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tech-divider"></div>
+
+                <div class="tech-item">
+                    <div class="tech-info">
+                        <h3>Wireless Magnetic Charging</h3>
+                        <p>Our patented magnetic resonance technology creates an efficient energy transfer field that
+                            automatically aligns with your vehicle for optimal charging efficiency. The system
+                            intelligently adapts to different vehicle heights and positions, ensuring maximum power
+                            transfer in all scenarios.</p>
+                        <div class="charging-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <p class="tech-efficiency">95.8% Energy Transfer Efficiency</p>
+                    </div>
+                    <div class="tech-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWlPCwNYdDXDDrpfPmSY0yivLdP2HdDKCIGw&s"
+                            alt="Wireless Charging Technology">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table Section -->
+        <div class="comparison-section">
+            <h2>Why Choose The Shauryaa?</h2>
+            <p class="comparison-intro">See how our advanced EV technology compares to conventional options</p>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>The Shauryaa EVs</th>
+                            <th>Conventional EVs</th>
+                            <th>ICE Vehicles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Charging Method</td>
+                            <td>Wireless + Cable</td>
+                            <td>Cable Only</td>
+                            <td>Fuel Pump</td>
+                        </tr>
+                        <tr>
+                            <td>Charging Time</td>
+                            <td>15-30 min (80%)</td>
+                            <td>30-60 min (80%)</td>
+                            <td>5 min (Full)</td>
+                        </tr>
+                        <tr>
+                            <td>Range</td>
+                            <td>500+ km</td>
+                            <td>350-450 km</td>
+                            <td>600-800 km</td>
+                        </tr>
+                        <tr>
+                            <td>Maintenance Cost</td>
+                            <td>Very Low</td>
+                            <td>Low</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Emissions</td>
+                            <td>Zero</td>
+                            <td>Zero</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Performance</td>
+                            <td>Exceptional</td>
+                            <td>Very Good</td>
+                            <td>Good</td>
+                        </tr>
+                        <tr>
+                            <td>Smart Features</td>
+                            <td>Advanced AI</td>
+                            <td>Basic</td>
+                            <td>Limited</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Footer Already Added Above -->
+
+        <style>
+            /* Technology Section Styles */
+            .ev-technology {
+                padding: 70px 50px;
+                margin: 50px auto;
+                max-width: 1000px;
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+
+            .ev-technology h2 {
+                color: #007766;
+                font-size: 32px;
+                margin-bottom: 40px;
+                text-transform: uppercase;
+                font-family: 'Orbitron', sans-serif;
+                text-align: center;
+            }
+
+            .tech-showcase {
+                display: flex;
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .tech-item {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                align-items: center;
+            }
+
+            .tech-image {
+                flex: 1;
+                min-width: 300px;
+            }
+
+            .tech-image img {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .tech-info {
+                flex: 1;
+                min-width: 300px;
+            }
+
+            .tech-info h3 {
+                color: #007766;
+                font-size: 22px;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            .tech-info p {
+                font-size: 16px;
+                line-height: 1.7;
+                color: #444;
+                margin-bottom: 20px;
+            }
+
+            .tech-specs {
+                background: #f5f5f5;
+                padding: 15px;
+                border-radius: 8px;
+                list-style: none;
+            }
+
+            .tech-specs li {
+                padding: 8px 0;
+                border-bottom: 1px solid #e0e0e0;
+                color: #555;
+                font-size: 15px;
+            }
+
+            .tech-specs li:last-child {
+                border-bottom: none;
+            }
+
+            .tech-efficiency {
+                font-weight: bold;
+                color: #007766;
+                font-size: 18px !important;
+            }
+
+            .tech-divider {
+                height: 2px;
+                background: linear-gradient(to right, transparent, #00aa88, transparent);
+                margin: 20px 0;
+            }
+
+            /* Comparison Table Styles */
+            .comparison-section {
+                padding: 60px 50px;
+                margin: 50px auto;
+                max-width: 1000px;
+                text-align: center;
+            }
+
+            .comparison-section h2 {
+                color: #007766;
+                font-size: 32px;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+                font-family: 'Orbitron', sans-serif;
+            }
+
+            .comparison-intro {
+                font-size: 18px;
+                color: #555;
+                margin-bottom: 40px;
+            }
+
+            .comparison-table-wrapper {
+                overflow-x: auto;
+            }
+
+            .comparison-table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .comparison-table th {
+                background: #007766;
+                color: white;
+                padding: 15px;
+                text-align: center;
+                font-size: 18px;
+            }
+
+            .comparison-table th:first-child {
+                text-align: left;
+            }
+
+            .comparison-table td {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+                text-align: center;
+                font-size: 16px;
+            }
+
+            .comparison-table td:first-child {
+                font-weight: bold;
+                color: #444;
+                text-align: left;
+            }
+
+            .comparison-table tr:nth-child(even) {
+                background: #f9f9f9;
+            }
+
+            .comparison-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .comparison-table tr:hover {
+                background: #f0f8f6;
+            }
+
+            /* CTA Section Styles */
+            .cta-section {
+                background: linear-gradient(135deg, rgba(0, 119, 102, 0.9), rgba(0, 170, 136, 0.9)),
+                    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn-BIvW5tE3aLUNJCXhBUd5w7YhKqhd_6obQ&s') no-repeat center center/cover;
+                padding: 80px 50px;
+                margin: 50px auto;
+                max-width: 1000px;
+                border-radius: 15px;
+                text-align: center;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            }
+
+            .cta-content h2 {
+                color: white;
+                font-size: 36px;
+                margin-bottom: 20px;
+                font-family: 'Orbitron', sans-serif;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+
+            .cta-content p {
+                color: white;
+                font-size: 20px;
+                margin-bottom: 40px;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-buttons {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .btn-primary {
+                background: white;
+                color: #007766;
+            }
+
+            .btn-primary:hover {
+                background: #f0f0f0;
+                transform: scale(1.05);
+            }
+
+            .btn-secondary {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+
+            .btn-secondary:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: scale(1.05);
+            }
+
+            /* Additional Responsive Styles */
+            @media (max-width: 600px) {
+                .tech-item {
+                    flex-direction: column;
+                }
+
+                .tech-item:nth-child(even) {
+                    flex-direction: column-reverse;
+                }
+
+                .comparison-table td,
+                .comparison-table th {
+                    padding: 10px 8px;
+                    font-size: 14px;
+                }
+
+                .cta-section {
+                    padding: 50px 20px;
+                }
+
+                .cta-content h2 {
+                    font-size: 28px;
+                }
+
+                .cta-content p {
+                    font-size: 16px;
+                }
+            }
+        </style>
+        <script src="script.js"></script>
+
+        <script>
+            // Array of image filenames stored in the same folder as HTML
+            const images = ["im2.webp", "IMG.webp"];
+            let index = 0;
+            const heroSection = document.getElementById("hero");
+
+            function changeBackground() {
+                heroSection.style.backgroundImage = `url("${images[index]}")`;
+                index = (index + 1) % images.length;
+            }
+
+            // Change background every 4 seconds
+            setInterval(changeBackground, 4000);
+            changeBackground(); // Set initial background
+        </script>
+
+    </body>
+
+</html>
